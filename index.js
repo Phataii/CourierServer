@@ -23,16 +23,24 @@ app.use(cookieParser());
 
 //   })
 // );
-let corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  optionsSuccessStatus: 200,
-  allowedHeaders: ["Content-Type", "Accept", "Authorization", "associationId"],
-  credentials: true,
-};
+// let corsOptions = {
+//   origin: "*",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   optionsSuccessStatus: 200,
+//   allowedHeaders: ["Content-Type", "Accept", "Authorization", "associationId"],
+//   credentials: true,
+// };
+//app.use(cors(corsOptions));
+//app.options(cors(corsOptions));
+app.set("trust proxy", 1);
 
-app.use(cors(corsOptions));
-app.options(cors(corsOptions));
+app.use(
+  cors({
+    origin: General.CORSORIGIN,
+    credentials: true,
+  })
+);
+
 // connect to mongoDB
 
 mongoose.connect(
