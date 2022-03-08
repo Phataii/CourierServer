@@ -17,8 +17,6 @@ app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors(corsOptions));
-app.options(cors(corsOptions));
 // app.use(
 //   cors({
 //     origin: [],
@@ -32,6 +30,9 @@ let corsOptions = {
   allowedHeaders: ["Content-Type", "Accept", "Authorization", "associationId"],
   credentials: true,
 };
+
+app.use(cors(corsOptions));
+app.options(cors(corsOptions));
 // connect to mongoDB
 
 mongoose.connect(
