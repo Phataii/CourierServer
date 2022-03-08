@@ -1,7 +1,19 @@
 const mongoose = require("mongoose");
 
 const shipmentSchema = new mongoose.Schema({
-  itemName: {
+  itemName1: {
+    type: String,
+  },
+  itemNam2: {
+    type: String,
+  },
+  itemName3: {
+    type: String,
+  },
+  itemName4: {
+    type: String,
+  },
+  itemName5: {
     type: String,
   },
   trackingId: {

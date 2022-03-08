@@ -19,13 +19,13 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
+      "https://suspicious-mcnulty-e79cee.netlify.app/",
+      //"http://localhost:3000",
       // "https://mern-auth-template-tutorial.netlify.app",
     ],
     credentials: true,
   })
 );
-
 
 // connect to mongoDB
 
@@ -47,4 +47,3 @@ app.use("/auth", require("./routers/userRouter"));
 app.use("/shipment", require("./routers/shipmentRouter"));
 
 app.use(errorHandler);
-
