@@ -16,41 +16,22 @@ app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 
 app.use(express.json());
 app.use(cookieParser());
-// Add headers
-app.use(function (req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://suspicious-mcnulty-e79cee.netlify.app/"
-  );
 
-  // Request methods you wish to allow
-  //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+app.use(cors(corsOptions));
+app.options(cors(corsOptions));
+// app.use(
+//   cors({
+//     origin: [],
 
-  // Request headers you wish to allow
-  //res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  //res.setHeader('Access-Control-Allow-Credentials', true);
-
-  // Pass to next layer of middleware
-  next();
-});
-app.use(
-  cors({
-    origin: [
-      // res.setHeader(
-      //   "Access-Control-Allow-Origin",
-      //   "https://suspicious-mcnulty-e79cee.netlify.app/"
-      // ),
-      //"http://localhost:3000",
-      // "https://mern-auth-template-tutorial.netlify.app",
-    ],
-    credentials: true,
-  })
-);
-
+//   })
+// );
+let corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  optionsSuccessStatus: 200,
+  allowedHeaders: ["Content-Type", "Accept", "Authorization", "associationId"],
+  credentials: true,
+};
 // connect to mongoDB
 
 mongoose.connect(
