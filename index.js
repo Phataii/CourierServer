@@ -41,7 +41,10 @@ app.use(
   })
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://suspicious-mcnulty-e79cee.netlify.app/"
+  );
   next();
 });
 // connect to mongoDB
