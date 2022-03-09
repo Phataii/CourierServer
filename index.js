@@ -20,7 +20,10 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://suspicious-mcnulty-e79cee.netlify.app/"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
