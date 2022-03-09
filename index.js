@@ -18,6 +18,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.set("trust proxy", 1);
+app.use(
+  cors({
+    origin: "https://suspicious-mcnulty-e79cee.netlify.app/",
+    credentials: true,
+  })
+);
 // Add Access Control Allow Origin headers
 app.use((req, res, next) => {
   res.setHeader(
