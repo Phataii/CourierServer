@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://suspicious-mcnulty-e79cee.netlify.app/",
+    origin: "https://silly-murdock-22f721.netlify.app",
     credentials: true,
   })
 );
@@ -28,7 +28,7 @@ app.use(
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://suspicious-mcnulty-e79cee.netlify.app/"
+    "https://silly-murdock-22f721.netlify.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
