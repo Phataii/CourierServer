@@ -7,7 +7,11 @@ const { param } = require("express-validator");
 router.post("/", auth, async (req, res) => {
   try {
     const {
-      itemName,
+      itemName1,
+      itemName2,
+      itemName3,
+      itemName4,
+      itemName5,
       trackingId,
       location,
       time,
@@ -18,7 +22,11 @@ router.post("/", auth, async (req, res) => {
     } = req.body;
 
     const newShipment = new Shipment({
-      itemName,
+      itemName1,
+      itemName2,
+      itemName3,
+      itemName4,
+      itemName5,
       trackingId,
       location,
       time,
