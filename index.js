@@ -32,18 +32,18 @@ app.use(cookieParser());
 // };
 //app.use(cors(corsOptions));
 //app.options(cors(corsOptions));
-// app.set("trust proxy", 1);
+app.set("trust proxy", 1);
 
-// app.use(
-//   cors({
-//     origin: General.CORSORIGIN,
-//     credentials: true,
-//   })
-// );
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
+app.use(
+  cors({
+    origin: "https://suspicious-mcnulty-e79cee.netlify.app/",
+    credentials: true,
+  })
+);
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 // connect to mongoDB
 
 mongoose.connect(
