@@ -20,27 +20,20 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://silly-murdock-22f721.netlify.app",
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://silly-murdock-22f721.netlify.app"
+        : "http://localhost:3000",
     credentials: true,
   })
 );
-// Add Access Control Allow Origin headers
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://silly-murdock-22f721.netlify.app"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 mongoose.connect(
   process.env.MDB_CONNECT,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   },
   (err) => {
     if (err) return console.error(err);

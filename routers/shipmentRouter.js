@@ -45,6 +45,51 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
+router.put("/:id", auth, async (req, res) => {
+  try {
+    const shipmentId = req.params.id;
+
+    const {
+      itemName1,
+      itemName2,
+      itemName3,
+      itemName4,
+      itemName5,
+      trackingId,
+      location,
+      time,
+      date,
+      sender,
+      receiver,
+      status,
+    } = req.body;
+
+    const shipment = await Shipment.findOneAndUpdate(
+      shipmentId,
+      {
+        itemName1,
+        itemName2,
+        itemName3,
+        itemName4,
+        itemName5,
+        trackingId,
+        location,
+        time,
+        date,
+        sender,
+        receiver,
+        status,
+      },
+      { new: true }
+    );
+
+    res.json(shipment);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send();
+  }
+});
+
 router.get("/", auth, async (req, res) => {
   try {
     const shipments = await Shipment.find();
