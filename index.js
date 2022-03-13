@@ -22,7 +22,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? "https://iswds.netlify.app/"
+        ? "https://silly-murdock-22f721.netlify.app"
         : "http://localhost:3000",
     credentials: true,
   })
