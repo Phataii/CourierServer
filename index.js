@@ -22,7 +22,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? "https://www.iswds.live/"
+        ? "https://www.iswds.live"
         : "http://localhost:3000",
     credentials: true,
   })
